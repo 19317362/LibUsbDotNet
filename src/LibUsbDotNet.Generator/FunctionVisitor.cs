@@ -3,6 +3,7 @@
 // </copyright>
 
 using Core.Clang;
+using Core.Clang.Documentation.Doxygen;
 using LibUsbDotNet.Generator.Primitives;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -212,7 +213,7 @@ namespace LibUsbDotNet.Generator
                 // Recurse
                 var childCount = comment.GetNumChildren();
 
-                for (int i = 0; i < childCount; i++)
+                for (uint i = 0; i < childCount; i++)
                 {
                     var child = comment.GetChild(i);
                     this.GetCommentInnerText(child, builder);

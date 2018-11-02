@@ -39,10 +39,14 @@ namespace LibUsbDotNet
     {
         /// <summary>
         /// Use the default struct alignment for this platform.
+        /// DllImport会按照顺序自动去寻找的地方：
+            //1、exe所在目录
+            //2、System32目录
+            //3、环境变量目录
         /// </summary>
         internal const int Pack = 0;
 
-#if WIN_X64 || WIN_X86 || NET45 || WIN7_X64 || WIN7_X86 // win7-x64, win7-x64 during testing only.
+#if   WIN || WIN_X64 || WIN_X86 || NET45 || WIN7_X64 || WIN7_X86 // win7-x64, win7-x64 during testing only.
         internal const string LibUsbNativeLibrary = "libusb-1.0.dll";
         internal const CallingConvention LibUsbCallingConvention = CallingConvention.StdCall;
 #elif LINUX_X64 || UBUNTU || UBUNTU_16_04_X64 || UBUNTU_16_04_ARM64 // ubuntu during testing only.
